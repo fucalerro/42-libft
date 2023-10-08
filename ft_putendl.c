@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 09:49:38 by larbitrator       #+#    #+#             */
-/*   Updated: 2023/09/29 14:54:55 by lferro           ###   ########.fr       */
+/*   Created: 2023/09/29 17:33:40 by lferro            #+#    #+#             */
+/*   Updated: 2023/09/29 17:35:53 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putendl(char const *s)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	ft_putstr(s);
+	ft_putchar('\n');
 }

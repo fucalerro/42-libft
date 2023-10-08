@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 09:49:38 by larbitrator       #+#    #+#             */
-/*   Updated: 2023/09/29 14:54:55 by lferro           ###   ########.fr       */
+/*   Created: 2023/09/29 17:13:31 by lferro            #+#    #+#             */
+/*   Updated: 2023/09/29 17:32:57 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putstr(char const *s)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	write(1, &(*s), ft_strlen(s));
 }

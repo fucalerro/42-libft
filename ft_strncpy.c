@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 09:49:38 by larbitrator       #+#    #+#             */
-/*   Updated: 2023/09/29 14:54:55 by lferro           ###   ########.fr       */
+/*   Created: 2023/09/27 15:44:56 by lferro            #+#    #+#             */
+/*   Updated: 2023/09/28 09:33:11 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	while (*src != 0 && n--)
+		*dest++ = *src++;
+	*dest = 0;
+	return (dest);
 }

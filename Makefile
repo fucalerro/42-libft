@@ -7,16 +7,14 @@ OBJ = $(SRC:.c=.o)
 GCH = $(SRC:.c=.gch)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -lbsd
 
 all: $(NAME)
 
 clean:
-	rm -f $(OBJ) $(GCH)
-	rm -f *.h.gch
-	rm -f *.out
+	@rm -f $(OBJ) $(GCH) *.h.gch *.out
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

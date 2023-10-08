@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 09:49:38 by larbitrator       #+#    #+#             */
-/*   Updated: 2023/09/29 14:54:55 by lferro           ###   ########.fr       */
+/*   Created: 2023/09/30 19:48:16 by lferro            #+#    #+#             */
+/*   Updated: 2023/10/05 16:35:47 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (s == NULL || f == NULL)
+		return ;
+	while (*s)
+		f(s++);
 }
+
+// void	func(char *c)
+// {
+// 	if (*c >= 'a' && *c <= 'z')
+// 		*c = *c - 32;
+// }
+
+// int main(int argc, char const *argv[]) {
+//     char s[] = "je mange du pain";
+
+//     ft_striter(s, func);
+
+//     printf("%s\n", s);
+
+//     return 0;
+// }

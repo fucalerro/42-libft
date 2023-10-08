@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 09:49:38 by larbitrator       #+#    #+#             */
-/*   Updated: 2023/09/29 14:54:55 by lferro           ###   ########.fr       */
+/*   Created: 2023/09/29 12:10:45 by lferro            #+#    #+#             */
+/*   Updated: 2023/09/29 17:05:17 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strnew(size_t size)
 {
 	size_t	i;
+	char	*str;
 
 	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	str = malloc(sizeof(char) * size + 1);
+	while (i <= size + 1)
+		str[i++] = 0;
+	return (str);
 }

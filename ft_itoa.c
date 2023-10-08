@@ -1,29 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 14:34:41 by lferro            #+#    #+#             */
-/*   Updated: 2023/09/27 15:36:05 by lferro           ###   ########.fr       */
+/*   Created: 2023/09/30 18:09:35 by lferro            #+#    #+#             */
+/*   Updated: 2023/09/30 18:57:03 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char * ft_itoa(int n)
 {
-	size_t	dest_len;
-	size_t	i;
+	char *anbr;
+	int i;
+	int nbr;
+	i = 3;
 
-	dest_len = ft_strlen(dest);
-	i = 0;
-	while (src[i])
+	while ((nbr > 9 || nbr < -9) && i++)
+		nbr /= 10;
+	if (n >= 0)
+		i--;
+	anbr = malloc(sizeof(char) * i);
+	if (n < 0)
 	{
-		dest[dest_len + i] = src[i];
-		i++;
+		n = -n;
+		anbr[0] = '-';
 	}
-	dest[dest_len + i] = '\0';
-	return (dest);
+	if (anbr == 0)
+		return (NULL);
+	anbr[--i] = 0;
+	while (n > 0)
+	{
+		anbr[i-- - 1] = (n % 10) + 48;
+		n /= 10;
+	}
+	return anbr;
+}
+
+int main(int argc, char const *argv[])
+{
+	int nbr = -1;
+
+	printf("%s", ft_itoa(nbr));
+	return 0;
 }

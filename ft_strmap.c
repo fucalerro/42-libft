@@ -1,23 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 09:49:38 by larbitrator       #+#    #+#             */
-/*   Updated: 2023/09/29 14:54:55 by lferro           ###   ########.fr       */
+/*   Created: 2023/10/02 15:44:41 by lferro            #+#    #+#             */
+/*   Updated: 2023/10/02 20:15:32 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	size_t	i;
+	char	*res;
+	int		i;
 
 	i = 0;
+	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (res == NULL)
+		return (NULL);
 	while (s[i])
+	{
+		res[i] = f(s[i]);
 		i++;
-	return (i);
+	}
+	res[i] = 0;
+	return res;
 }
+
+// char	func(char c)
+// {
+// 	if (c >= 'a' && c <= 'z')
+// 		c = c - 32;
+// }
+
+// int main()
+// {
+// 	char *s = "je mange du pain";
+// 	char *newstr = ft_strmap(s, func);
+
+// 	printf("%s", newstr);
+// 	return (0);
+// }
+
+

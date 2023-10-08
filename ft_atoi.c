@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 09:49:38 by larbitrator       #+#    #+#             */
-/*   Updated: 2023/09/29 14:54:55 by lferro           ###   ########.fr       */
+/*   Created: 2023/09/15 10:18:59 by lferro            #+#    #+#             */
+/*   Updated: 2023/09/28 09:34:42 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_atoi(const char *nptr)
 {
-	size_t	i;
+	size_t	*i;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	i = (size_t []){1, 0, 0};
+	while (nptr[i[1]] == ' ')
+		i[1]++;
+	if (nptr[i[1]] == '+')
+		i[1]++;
+	if (nptr[i[1]] == '-')
+	{
+		i[0] = -1;
+		i[1]++;
+	}
+	while (nptr[i[1]] >= '0' && nptr[i[1]] <= '9')
+		i[2] = i[2] * 10 + nptr[i[1]++] - 48;
+	return (i[2] * i[0]);
 }
