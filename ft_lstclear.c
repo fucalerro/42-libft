@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 18:09:35 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/09 16:39:53 by lferro           ###   ########.fr       */
+/*   Created: 2023/10/09 18:11:40 by lferro            #+#    #+#             */
+/*   Updated: 2023/10/09 18:59:58 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char * ft_itoa(int n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char	*anbr;
-	int		i;
-	int		nbr;
+	t_list	*current;
+	t_list *next;
 
-	nbr = n;
-	i = 3;
-	while ((nbr > 9 || nbr < -9) && i++)
-		nbr /= 10;
-	if (n >= 0)
-		i--;
-	anbr = malloc(sizeof(char) * i);
-	if (n < 0)
+	current = *lst;
+	while (current->next != NULL)
 	{
-		n = -n;
-		anbr[0] = '-';
+		next = current->next;
+		del(current->content);
+		lst = NULL;
+		free(current);
+		current = next;
 	}
-	if (anbr == 0)
-		return (NULL);
-	anbr[--i] = 0;
-	while (n > 0)
-	{
-		anbr[i-- - 1] = (n % 10) + 48;
-		n /= 10;
-	}
-	return anbr;
+	*lst = NULL;
+}
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	del((lst)->content);
+	lst = NULL;
+	free(lst);
 }

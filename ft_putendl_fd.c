@@ -1,42 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 18:09:35 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/09 16:39:53 by lferro           ###   ########.fr       */
+/*   Created: 2023/10/09 17:47:13 by lferro            #+#    #+#             */
+/*   Updated: 2023/10/09 17:48:57 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libc.h"
 
-char * ft_itoa(int n)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	char	*anbr;
-	int		i;
-	int		nbr;
-
-	nbr = n;
-	i = 3;
-	while ((nbr > 9 || nbr < -9) && i++)
-		nbr /= 10;
-	if (n >= 0)
-		i--;
-	anbr = malloc(sizeof(char) * i);
-	if (n < 0)
-	{
-		n = -n;
-		anbr[0] = '-';
-	}
-	if (anbr == 0)
-		return (NULL);
-	anbr[--i] = 0;
-	while (n > 0)
-	{
-		anbr[i-- - 1] = (n % 10) + 48;
-		n /= 10;
-	}
-	return anbr;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

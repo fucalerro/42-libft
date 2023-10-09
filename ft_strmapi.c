@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
+/*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:44:41 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/02 20:15:32 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/09 17:23:33 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*res;
 	int		i;
@@ -23,26 +23,23 @@ char	*ft_strmap(char const *s, char (*f)(char))
 		return (NULL);
 	while (s[i])
 	{
-		res[i] = f(s[i]);
+		res[i] = f(i, s[i]);
 		i++;
 	}
 	res[i] = 0;
-	return res;
+	return (res);
 }
 
-// char	func(char c)
+// char	func( unsigned int n, char c)
 // {
-// 	if (c >= 'a' && c <= 'z')
+// 	if ((c >= 'a' && c <= 'z') && (n % 2 == 0))
 // 		c = c - 32;
+// 	return (c);
 // }
-
 // int main()
 // {
 // 	char *s = "je mange du pain";
-// 	char *newstr = ft_strmap(s, func);
-
+// 	char *newstr = ft_strmapi(s, func);
 // 	printf("%s", newstr);
 // 	return (0);
-// }
-
-
+// }`

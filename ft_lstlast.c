@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 19:58:51 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/09 18:10:53 by lferro           ###   ########.fr       */
+/*   Created: 2023/10/09 17:54:48 by lferro            #+#    #+#             */
+/*   Updated: 2023/10/09 18:08:54 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	i;
-
-	i = 0;
-	while (lst != 0)
-	{
+	while (lst->next != NULL)
 		lst = lst->next;
-		i++;
-	}
-	return (i);
-	// printf("%d\n", i);
+	return (lst);
 }
 
 // int main(void)
@@ -38,12 +31,10 @@ int	ft_lstsize(t_list *lst)
 // 	t_list *node_n3 = ft_lstnew(&n3);
 // 	t_list *node_n4 = ft_lstnew(&n4);
 // 	t_list *node_n5 = ft_lstnew(&n5);
-
-// 	ft_lstadd_front(&node_n1, node_n2);
-// 	ft_lstadd_front(&node_n1, node_n3);
-// 	ft_lstadd_front(&node_n1, node_n4);
-// 	ft_lstadd_front(&node_n1, node_n5);
-
-// 	ft_lstsize(node_n1);
+// 	ft_lstadd_back(&node_n1, node_n2);
+// 	ft_lstadd_back(&node_n1, node_n3);
+// 	ft_lstadd_back(&node_n1, node_n4);
+// 	ft_lstadd_back(&node_n1, node_n5);
+// 	printf("%d", *(int *)(ft_lstlast(node_n1)->content));
 // 	return (0);
 // }
