@@ -6,13 +6,13 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 18:09:35 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/09 16:39:53 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/10 11:36:09 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char * ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*anbr;
 	int		i;
@@ -38,5 +38,5 @@ char * ft_itoa(int n)
 		anbr[i-- - 1] = (n % 10) + 48;
 		n /= 10;
 	}
-	return anbr;
+	return (anbr);
 }

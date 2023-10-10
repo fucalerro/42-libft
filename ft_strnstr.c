@@ -3,44 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
+/*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:52:31 by lferro            #+#    #+#             */
-/*   Updated: 2023/09/28 09:36:30 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/10 18:39:55 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
-{
-	size_t	*i;
+// char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+// {
+// 	if (*needle)
+// 		return ((char *)haystack);
+// 	while (len >= strlen(needle) || strlen(haystack) < strlen(needle))
+// 		return 0;
+// 	while ( <= strlen(needle))
+// }
 
-	i = (size_t []){strlen(little), strlen(big), 0, 0};
-	if (i[0] <= 0)
-		return ((char *)big);
-	if (len < i[0] || i[1] < i[0])
-		return (NULL);
-	while (i[2] <= i[0] && i[2] < len)
+
+
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	int j = 0;
+	int i = 0;
+	if (strlen(needle) <= 0)
+		return ((char *)haystack);
+	if (len < strlen(needle) || strlen(haystack) <  strlen(needle))
+		return (0);
+	while (j <= strlen(needle) && j < len)
 	{
-		while (big[i[2] + i[3]] == little[i[3]])
-			if (i[3]++ + 1 == i[0])
-				return ((char *)&big[i[2]]);
-		i[3] = 0;
-		i[2]++;
+		while (*haystack++ == *needle)
+			if ( i++ + 1 ==  strlen(needle))
+				return ((char *)haystack);
+		 i = 0;
+		 j++;
 	}
-	return (NULL);
+	return (0);
 }
 
-// int main(int argc, char const *argv[])
-// {
-// 	char *s1 = "pieorhunheraoi";
-// 	char *s2 ="a";
 
-// 	int n = 12;
 
-// 	printf("%s\n", ft_strnstr(s1, s2, n));
-// 	printf("%s\n", strnstr(s1, s2, n));
 
-// 	return 0;
-// }
+
+int main(int argc, char const *argv[])
+{
+	char *s1 = "pieorhunheraoi";
+	char *s2 ="a";
+
+	int n = 12;
+
+	printf("%s\n", ft_strnstr(s1, s2, n));
+	printf("%s\n", strnstr(s1, s2, n));
+
+	return (0);
+}

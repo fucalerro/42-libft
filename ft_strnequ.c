@@ -26,5 +26,5 @@ int	ft_strnequ(char const *s1, char const *s2, size_t n)
 // int n = 5;
 
 // 	printf("%d", ft_strnequ(s1, s2, n));
-// 	return 0;
+// 	return (0);
 // }

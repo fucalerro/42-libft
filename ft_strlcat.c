@@ -3,43 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
+/*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:56:35 by lferro            #+#    #+#             */
-/*   Updated: 2023/09/28 09:36:24 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/10 17:40:49 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <bsd/string.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	src_len;
-	size_t	dst_len;
-	size_t	tot_len;
-	char	*new_dst;
+	unsigned int	s_len;
+	unsigned int	d_len;
+	unsigned int	tot_len;
 
-	src_len = strlen(src);
-	dst_len = strlen(dst);
-	tot_len = src_len + dst_len;
-	if (size <= tot_len)
+	s_len = ft_strlen(src);
+	d_len = ft_strlen(dst);
+	tot_len = s_len + d_len;
+	if (tot_len + 1 < size)
 	{
-		if (size > dst_len)
-		{
-			new_dst = malloc(sizeof(char) * size);
-			dst = new_dst;
-			new_dst = strncat(new_dst, src, size);
-			strcpy(dst, new_dst);
-			return (strlen(new_dst));
-		}
-		return (src_len + size);
+		ft_strncat(dst, src, tot_len + 1);
+		dst[tot_len] = 0;
+		return (tot_len + 1);
 	}
-	new_dst = malloc(sizeof(char) * tot_len);
-	dst = new_dst;
-	new_dst = strncat(new_dst, src, tot_len + 1);
-	strcpy(dst, new_dst);
-	return (tot_len);
+	else if (size != 0)
+	{
+		ft_strncat(dst, src, size - 1);
+		dst[size - 1] = 0;
+	}
+	return (size - 1);
 }
 
 // int main(void)
@@ -66,7 +59,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 // 			strcpy(ds[i], ids[i]);
 // 			int ftlcat = strlcat(ds[i], src[j], n);
 // 			if (strcmp(verif, ds[i]) != 0 || ftlcat != lcat)
-// 				return ERR;
+// 				return (1);
 // 			strcpy(ds[i], ids[i]);
 // 		}
 // }

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
+/*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 17:13:31 by lferro            #+#    #+#             */
-/*   Updated: 2023/09/29 17:32:57 by lferro           ###   ########.fr       */
+/*   Created: 2023/10/10 14:56:25 by lferro            #+#    #+#             */
+/*   Updated: 2023/10/10 16:02:06 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	write(1, &(*s), ft_strlen(s));
+	const unsigned char	*t1 = s1;
+	const unsigned char	*t2 = s2;
+	int					i;
+
+	i = 0;
+	while (n-- > 0)
+	{
+		if (t1[i] != t2[i])
+			return (t1[i] - t2[i]);
+		i++;
+	}
+	return (0);
 }

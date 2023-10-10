@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
+/*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:14:18 by lferro            #+#    #+#             */
-/*   Updated: 2023/09/11 12:40:36 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/10 18:13:00 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	char		*last_char;
+	const char	ch = c;
+	size_t		i;
 
-	i = strlen(s) - 1;
-	if (c == '\0')
-		return ((char *)s + i + 1);
-	while (s[i])
+	i = 0;
+	last_char = NULL;
+	while (i <= ft_strlen(s))
 	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i--;
+		if (s[i] == ch)
+			last_char = (char *)&s[i];
+		i++;
 	}
-	return (NULL);
+	return (last_char);
 }

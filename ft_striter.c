@@ -33,5 +33,5 @@ void	ft_striter(char *s, void (*f)(char *))
 
 //     printf("%s\n", s);
 
-//     return 0;
+//     return (0);
 // }

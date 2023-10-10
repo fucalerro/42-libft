@@ -6,17 +6,19 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 09:51:59 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/09 16:39:38 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/10 14:03:03 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	word_counter(char const *s, char c)
+static size_t	word_counter(char const *s, char c)
 {
 	int	word_len;
 	int	i;
 
+	i = 0;
+	word_len = 0;
 	while (s[i++])
 		if (s[i] == c && s[i + 1] != c && s[i + 1] != 0)
 			word_len++;
@@ -25,16 +27,14 @@ static int	word_counter(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t *i;
-
-	i = (size_t []){-1, 0};
-
-	int		i;
-	int		j;
+	size_t	*i;
 	int		a;
 	int		b;
 	char	**res;
 
+	a = 0;
+	b = 0;
+	i = (size_t[]){-1, 0};
 	res = malloc((word_counter(s, c) + 1) * sizeof(char));
 	if (res == 0)
 		return (NULL);
@@ -54,33 +54,5 @@ char	**ft_split(char const *s, char c)
 			res[i[0]][i[1]++] = s[a++ - 1];
 		res[i[0]][i[1]] = 0;
 	}
+	return (res);
 }
-
-// char	**ft_split(char const *s, char c)
-// {
-// 	size_t	*i;
-// 	char	**res;
-
-// 	i = (size_t []){0, 1, 0, -1, 0, 1};
-// 	while (s[i[4]++])
-// 		if (s[i[4]] == c && s[i[4] + 1] != c && s[i[4] + 1] != 0)
-// 			i[5]++;
-// 	res = malloc((i[5] + 1) * sizeof(char *));
-// 	while (++(i[3]) < i[5])
-// 	{
-// 		i[2] = 0;
-// 		while ((s[i[0]++] == c && *s))
-// 			i[1]++;
-// 		while ((s[i[1]] != c && *s) || (i[1] < i[0]))
-// 			i[1]++;
-// 		res[i[3]] = malloc(sizeof(char) * (i[1] - i[0] + 3));
-// 		if (res[i[3]] == NULL)
-// 			free(res);
-// 		if (res[i[3]] == NULL || res == NULL)
-// 			return (NULL);
-// 		while (i[0] <= i[1] && *s)
-// 			res[i[3]][i[2]++] = s[i[0]++ - 1];
-// 		res[i[3]][i[2]] = 0;
-// 	}
-// 	return (res);
-// }

@@ -25,5 +25,5 @@ int	ft_strequ(char const *s1, char const *s2)
 // 	char *s2 = "je maeSnge";
 
 // 	printf("%d", ft_strequ(s1, s2));
-// 	return 0;
+// 	return (0);
 // }

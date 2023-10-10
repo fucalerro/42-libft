@@ -3,44 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
+/*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 19:32:01 by lferro            #+#    #+#             */
-/*   Updated: 2023/09/30 19:14:30 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/10 13:48:07 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(char c)
+static int	ft_istrimable(char c, const char *set)
 {
-	if (c == ' ' || c == '\t' || c == '\n')
-		return (1);
+	int	i;
+
+	i = 0;
+	while (set[i])
+	{
+		if (c == set[i])
+			return (1);
+		i++;
+	}
 	return (0);
 }
 
-char	*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	*i;
 	char	*res;
+	int		i;
+	int		j;
+	int		len;
 
-	i = (size_t []){0, strlen(s) - 1, 0};
-	while (ft_isspace(s[i[0]]) == 1)
-		s[i[0]++];
-	while (ft_isspace(s[i[1]]) == 1)
-		s[i[1]--];
-	res = malloc(sizeof(char) * (i[1] - i[0] + 1));
-	if (res == NULL)
-		return (NULL);
-	while (i[0] <= i[1])
-		res[i[2]++] = s[i[0]++];
+	i = 0;
+	j = 0;
+	len = strlen(s1) - 1;
+	while (ft_istrimable(s1[i], set) == 1)
+		i++;
+	while (ft_istrimable(s1[len], set) == 1)
+		len--;
+	if (len <= i - 1)
+		return (0);
+	res = malloc(sizeof(char) * len - i + 2);
+	if (res == 0)
+		return (0);
+	while (i <= len)
+		res[j++] = s1[i++];
+	res[j] = 0;
+	printf("%zu", ft_strlen(res));
 	return (res);
 }
 
-// int main(int argc, char const *argv[])
+// int main(void)
 // {
-// 	char *str = "       je mange      ";
-// 	char *newstr = ft_strtrim(str);
+// 	const char *str = "  @#$@#   a aasf    $%@##$   ";
+// 	const char *set = " @#$%^!@)_";
+// 	char *newstr = ft_strtrim(str, set);
 // 	printf("%s", newstr);
-// 	return 0;
+// 	printf("\n");
+// 	return (0);
 // }

@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*res;
 	size_t	*i;
 
-	i = (size_t []){0, strlen(s1) + strlen(s2)};
+	i = (size_t[]){0, strlen(s1) + strlen(s2)};
 	res = malloc(sizeof(char) * (i[1] + 1));
 	if (res == NULL)
 		return (NULL);
@@ -37,6 +37,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 // 	for (size_t i = 0; i < 2; i++)
 // 		for (size_t j = 0; j < 2; j++)
 // 			if (strcmp(ft_strjoin(s1[i], s1[j]), res[i + j]) != 0)
-// 				return ERR;
-// 	return OK;
+// 				return (ERR);
+// 	return (OK);
 // }

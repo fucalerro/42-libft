@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
+/*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 12:01:41 by lferro            #+#    #+#             */
-/*   Updated: 2023/09/28 09:32:23 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/10 16:02:00 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t		i;
-	char		*s_buf;
+	size_t	i;
+	char	*s_buf;
 
 	s_buf = (char *)s;
 	i = 0;
 	while (i < n)
-		s_buf[i++] = (char) '\0';
+		s_buf[i++] = (char)'\0';
 	s = (void *)s_buf;
 }

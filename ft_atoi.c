@@ -16,7 +16,7 @@ int	ft_atoi(const char *nptr)
 {
 	size_t	*i;
 
-	i = (size_t []){1, 0, 0};
+	i = (size_t[]){1, 0, 0};
 	while (nptr[i[1]] == ' ')
 		i[1]++;
 	if (nptr[i[1]] == '+')

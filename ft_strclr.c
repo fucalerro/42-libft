@@ -37,5 +37,5 @@ void	ft_strclr(char *s)
 // 	printf("%s\n", str);
 // 	ft_strclr(str);
 // 	printf("after :%s", str);
-// 	return 0;
+// 	return (0);
 // }

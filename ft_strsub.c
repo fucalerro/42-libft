@@ -36,5 +36,5 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 // 	int size = 6;
 
 // 	printf("%s", ft_strsub(s, 7, -5));
-// 	return 0;
+// 	return (0);
 // }
