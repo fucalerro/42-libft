@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:14:58 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/10 11:41:32 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/12 11:54:32 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 
 // int main(int argc, char const *argv[])
 // {
-// 	char *s1 = "hello world";
-// 	int start = 2;
-// 	int len = 2;
+// 	char s1[] = "lorem ipsum dolor sit amet";
+// 	int start = 400;
+// 	int len = 20;
 
 // 	printf("%s", ft_substr(s1, start, len));
 

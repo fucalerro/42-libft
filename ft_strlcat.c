@@ -6,60 +6,64 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:56:35 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/10 17:40:49 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/12 11:00:05 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <bsd/string.h>
+
+// unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
+// {
+// 	unsigned int	s_len;
+// 	unsigned int	d_len;
+// 	unsigned int	tot_len;
+
+// 	s_len = ft_strlen(src);
+// 	d_len = ft_strlen(dst);
+// 	tot_len = s_len + d_len;
+// 	if (tot_len + 1 < size)
+// 	{
+// 		ft_strncat(dst, src, tot_len + 1);
+// 		dst[tot_len] = 0;
+// 		return (tot_len + 1);
+// 	}
+// 	else if (size != 0)
+// 	{
+// 		ft_strncat(dst, src, size - 1);
+// 		dst[size - 1] = 0;
+// 	}
+// 	return (size - 1);
+// }
 
 unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned int	s_len;
-	unsigned int	d_len;
-	unsigned int	tot_len;
+	size_t	d_len;
+	size_t	s_len;
 
-	s_len = ft_strlen(src);
 	d_len = ft_strlen(dst);
-	tot_len = s_len + d_len;
-	if (tot_len + 1 < size)
-	{
-		ft_strncat(dst, src, tot_len + 1);
-		dst[tot_len] = 0;
-		return (tot_len + 1);
-	}
-	else if (size != 0)
-	{
-		ft_strncat(dst, src, size - 1);
-		dst[size - 1] = 0;
-	}
-	return (size - 1);
+	s_len = ft_strlen(src);
+	ft_strncat(dst, src, size);
+	if (size < d_len)
+		return (s_len + size);
+	return (d_len + s_len);
 }
 
-// int main(void)
-// {
-// 	char *src1 = "4567";
-// 	char *src2 = "";
-// 	char *src3 = "12345678910";
-// 	char is1[10] = "abc";
-// 	char s1[10] = "abc";
-// 	char is2[10] = "";
-// 	char s2[10] = "";
+// int main() {
+//     char d1[5] = "abc";
+// 	char d2[5] = "abc";
 
-// 	char *src[2] = {src1, src2};
-// 	char *ds[2] = {s1, s2};
-// 	char *ids[2] = {is1, is2};
-// 	char *verif;
+//     const char *s = "456789";
+//     size_t n = 6;
 
-// for (int i = 0; i < 2; i++)
-// 	for (int j = 0; j < 2; j++)
-// 		for (int n = -1; n < 10; n++)
-// 		{
-// 			int lcat = strlcat(ds[i], src[j], n);
-// 			strcpy(verif, ds[i]);
-// 			strcpy(ds[i], ids[i]);
-// 			int ftlcat = strlcat(ds[i], src[j], n);
-// 			if (strcmp(verif, ds[i]) != 0 || ftlcat != lcat)
-// 				return (1);
-// 			strcpy(ds[i], ids[i]);
-// 		}
+//     size_t r1 = strlcat(d1, s, n);
+//     size_t r2 = ft_strlcat(d2, s, n);
+
+//     printf("na len:	%zu\n", r1);
+//     printf("na str:	%s\n", d1);
+
+// 	printf("ft len:	%zu\n", r2);
+//     printf("ft str:	%s\n", d2);
+
+//     return 0;
 // }

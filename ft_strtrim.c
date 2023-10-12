@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 19:32:01 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/10 13:48:07 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/12 12:35:57 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (i <= len)
 		res[j++] = s1[i++];
 	res[j] = 0;
-	printf("%zu", ft_strlen(res));
 	return (res);
 }
 
 // int main(void)
 // {
-// 	const char *str = "  @#$@#   a aasf    $%@##$   ";
-// 	const char *set = " @#$%^!@)_";
+// 	const char *str = "lorem \n ipsum \t dolor \n sit \t amet";
+// 	const char *set = " ";
 // 	char *newstr = ft_strtrim(str, set);
-// 	printf("%s", newstr);
+// 	printf("\n%s", newstr);
 // 	printf("\n");
 // 	return (0);
 // }

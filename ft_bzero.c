@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 12:01:41 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/10 16:02:00 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/12 08:46:12 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	ft_bzero(void *s, size_t n)
 	s_buf = (char *)s;
 	i = 0;
 	while (i < n)
-		s_buf[i++] = (char)'\0';
+		s_buf[i++] = (char) '\0';
 	s = (void *)s_buf;
 }

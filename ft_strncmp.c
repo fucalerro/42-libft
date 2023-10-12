@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:16:55 by larbitrator       #+#    #+#             */
-/*   Updated: 2023/10/09 17:12:14 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/12 11:23:04 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,18 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	i = 0;
 	if (n == 0)
 		return (0);
-	while (s1[i] && s1[i] && i <= n && s1[i] == s2[i])
+	while (s1[i] && s2[i] && i < n -1 && s1[i] == s2[i])
 		i++;
 	return (s1[i] - s2[i]);
 }
+
+// int	main(void)
+// {
+// 	char	*s1 = "abcdefgh";
+// 	char	*s2 = "abcdwxyz";
+// 	int		n = 4;
+
+// 	printf("%d\n", strncmp(s1, s2, n));
+// 	printf("%d\n", ft_strncmp(s1, s2, n));
+
+// }

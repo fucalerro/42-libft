@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:44:41 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/09 17:23:33 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/12 11:45:29 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	while (s[i])
 	{
-		res[i] = f(i, s[i]);
+		res[i] = f((int)i, (char)s[i]);
 		i++;
 	}
 	res[i] = 0;
@@ -36,10 +36,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 // 		c = c - 32;
 // 	return (c);
 // }
+
 // int main()
 // {
 // 	char *s = "je mange du pain";
 // 	char *newstr = ft_strmapi(s, func);
 // 	printf("%s", newstr);
 // 	return (0);
-// }`
+// }

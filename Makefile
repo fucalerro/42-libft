@@ -6,7 +6,7 @@
 #    By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 10:59:43 by lferro            #+#    #+#              #
-#    Updated: 2023/10/10 18:12:58 by lferro           ###   ########.fr        #
+#    Updated: 2023/10/12 08:47:36 by lferro           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ ft_striteri.c\
 ft_putchar_fd.c\
 ft_putstr_fd.c\
 ft_putendl_fd.c\
+ft_strncat.c\
 ft_putnbr_fd.c
 
 OBJS = $(SRCS:.c=.o)

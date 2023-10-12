@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
+/*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:06:17 by lferro            #+#    #+#             */
-/*   Updated: 2023/09/13 11:52:43 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/12 09:54:45 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@ char	*ft_strncat(char *dest, const char *src, size_t n)
 	i = 0;
 	while (i < n && src[i])
 	{
-		dest[dest_len + i] = src[i];
-		i++;
+		if (dest_len + i < n - 1)
+		{
+			dest[dest_len + i] = src[i];
+			i++;
+		}
+		else
+			break;
 	}
 	dest[dest_len + i] = '\0';
 	return (dest);

@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:21:59 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/09 17:44:44 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/12 12:04:32 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,15 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		nbr = n % 10;
 		n = n / 10;
-		ft_putnbr(n);
+		ft_putnbr_fd(n, fd);
 		ft_putchar_fd(nbr + 48, fd);
 	}
 	else if (n < 10)
 		ft_putchar_fd(n + 48, fd);
 }
+
+// int main(int argc, char const *argv[])
+// {
+// 	ft_putnbr_fd(12312, 1);
+// 	return (0);
+// }

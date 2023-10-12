@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lferro <lferro@42lausanne.ch>              +#+  +:+       +#+        */
+/*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 19:14:17 by lferro            #+#    #+#             */
-/*   Updated: 2023/09/28 09:47:08 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/12 12:30:31 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*res;
 	size_t	*i;
 
-	i = (size_t[]){0, strlen(s1) + strlen(s2)};
+	i = (size_t[]){0, ft_strlen(s1) + ft_strlen(s2)};
 	res = malloc(sizeof(char) * (i[1] + 1));
 	if (res == NULL)
 		return (NULL);
