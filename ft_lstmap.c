@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:10:39 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/14 14:17:29 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/15 17:33:34 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,23 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_lst;
-	t_list	*current;
+	t_list	*new_node;
 	void	*new_content;
 
-`	new_lst = 0;
-	current = lst;
-	while (current)
+	while (lst)
 	{
 		new_content = f(lst->content);
-		current = ft_lstnew(new_content);
-		ft_lstadd_back(current, new_lst);
-		current->next = lst->next;
+		new_node = ft_lstnew(new_content);
+		if (new_node == NULL)
+		{
+			return (NULL);
+		}
+		ft_lstadd_back(&new_lst, new_node);
+		if (del)
+		{
+			del(lst->content);
+		}
+		lst = lst->next;
 	}
+	return (new_lst);
 }

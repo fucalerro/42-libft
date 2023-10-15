@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 12:16:55 by larbitrator       #+#    #+#             */
-/*   Updated: 2023/10/12 11:23:04 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/15 17:34:31 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return (0);
 	while (s1[i] && s2[i] && i < n -1 && s1[i] == s2[i])
 		i++;
-	return (s1[i] - s2[i]);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
 // int	main(void)

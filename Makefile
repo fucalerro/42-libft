@@ -6,7 +6,7 @@
 #    By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 10:59:43 by lferro            #+#    #+#              #
-#    Updated: 2023/10/14 11:47:18 by lferro           ###   ########.fr        #
+#    Updated: 2023/10/15 18:37:34 by lferro           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_isalpha.c \
+SRCS = ft_isalpha.c\
+ft_strcpy.c\
 ft_isdigit.c\
 ft_isalnum.c\
 ft_isascii.c\
@@ -57,7 +58,7 @@ ft_lstadd_front.c\
 ft_lstsize.c\
 ft_lstlast.c\
 ft_lstiter.c\
-# ft_lstmap.c
+ft_lstmap.c
 
 BONUS_OBJS = $(BONUS:.c=.o)
 

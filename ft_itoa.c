@@ -6,32 +6,78 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 18:09:35 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/12 12:25:48 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/15 20:31:21 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static char	*max_int_or_zero_mngmt(int n)
+{
+	char	*str;
+
+	if (n == 0)
+	{
+		str = malloc(sizeof(char) * 2);
+		if (str == 0)
+			return (0);
+		str[0] = '0';
+		str[1] = 0;
+	}
+	else
+	{
+		str = malloc(sizeof(char) * 12);
+		if (!str)
+			return (0);
+		return (ft_strdup("-2147483648"));
+	}
+	return (str);
+}
+
+static char	*mallocator(int n, int count)
+{
+	char	*anbr;
+
+	if (n < 0)
+		count++;
+	anbr = malloc(sizeof(char) * count);
+	return (anbr);
+}
+
+static int	count_digit(int n)
+{
+	int	count;
+
+	count = 3;
+	if (n > 0)
+		count--;
+	while ((n > 9 || n < -9))
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*anbr;
-	int		*i;
+	size_t	*i;
 
-	i = (int []){3, n};
-	if (n == 0)
-		return ("0");
-	while ((i[1] > 9 || i[1] < -9) && i[0]++)
-		i[1] /= 10;
-	if (n >= 0)
-		i[0]--;
-	anbr = malloc(sizeof(char) * i[0]);
-	if (n < 0)
+	i = (size_t[]){0, n, 0};
+	if (n == 0 || n == -2147483648)
 	{
-		n = -n;
-		anbr[0] = '-';
+		anbr = max_int_or_zero_mngmt(n);
+		return (anbr);
 	}
+	i[0] = count_digit(n);
+	anbr = mallocator(n, i[0]);
 	if (anbr == 0)
-		return (NULL);
+		return (0);
+	if (n < 0)
+		anbr[0] = '-';
+	if (n < 0)
+		n = -n;
 	anbr[--i[0]] = 0;
 	while (n > 0)
 	{
@@ -41,38 +87,9 @@ char	*ft_itoa(int n)
 	return (anbr);
 }
 
-// char	*ft_itoa(int n)
+// int main(void)
 // {
-// 	char	*anbr;
-// 	int		i;
-// 	int		nbr;
-
-// 	nbr = n;
-// 	i = 3;
-// 	while ((nbr > 9 || nbr < -9) && i++)
-// 		nbr /= 10;
-// 	if (n >= 0)
-// 		i--;
-// 	anbr = malloc(sizeof(char) * i);
-// 	if (n < 0)
-// 	{
-// 		n = -n;
-// 		anbr[0] = '-';
-// 	}
-// 	if (anbr == 0)
-// 		return (NULL);
-// 	anbr[--i] = 0;
-// 	while (n > 0)
-// 	{
-// 		anbr[i-- - 1] = (n % 10) + 48;
-// 		n /= 10;
-// 	}
-// 	return (anbr);
-// }
-
-// int main(int argc, char const *argv[])
-// {
-// 	int n = 0;
-// 	printf("%s", ft_itoa(n));
-// 	return 0;
+// 	int n = -2147483648LL;
+// 	printf("%s\n", ft_itoa(n));
+// 	return (0);
 // }

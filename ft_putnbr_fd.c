@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:21:59 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/14 11:53:57 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/15 20:21:33 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_putnbr_fd(int n, int fd)
 
 	if (n == -2147483648)
 		ft_putstr_fd("-2147483648", fd);
+	if (n == -2147483648)
+		return ;
 	else if (n < 0 && n > -2147483648)
 	{
 		n = -n;
@@ -41,6 +43,6 @@ void	ft_putnbr_fd(int n, int fd)
 
 // int main(int argc, char const *argv[])
 // {
-// 	ft_putnbr_fd(0, 1);
+// 	ft_putnbr_fd(-2147483648LL, 1);
 // 	return (0);
 // }

@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:18:59 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/15 10:14:19 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/15 17:50:40 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,17 @@ int	ft_atoi(const char *nptr)
 	size_t	i;
 	size_t	j;
 	size_t	k;
+	size_t	al_signed;
 
 	i = 1;
 	j = 0;
 	k = 0;
+	al_signed = 0;
 	while (ft_isspace(nptr[j]) == 1)
 		j++;
 	if (nptr[j] == '+')
 		j++;
-	if (nptr[j] == '-')
+	else if (nptr[j] == '-')
 	{
 		i = -1;
 		j++;
@@ -45,9 +47,9 @@ int	ft_atoi(const char *nptr)
 
 // int main(int argc, char const *argv[])
 // {
-// 	char *s = "\t\n\r\v\f  469 \n";
-
+// 	char *s = "-+54";
 // 	printf("%d", ft_atoi(s));
+// 	printf("\n%d", atoi(s));
 
 // 	return (0);
 // }

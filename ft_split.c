@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 09:51:59 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/15 10:15:48 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/15 10:17:42 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,50 @@ static int	word_counter(const char *s, const char c)
 	return (j);
 }
 
-char	**ft_split(char const *s, char c)
+char	*custom_strtrim(char const *s1, char c)
 {
-	char	**res;
+	char	*res;
 	int		i;
 	int		j;
+	int		len;
 
 	i = 0;
-	res = malloc((word_counter(s, c) + 1) * sizeof(char *));
+	j = 0;
+	len = strlen(s1) - 1;
+	while (s1[i] == c && s1[i])
+		i++;
+	while (s1[len] == c && len >= 0)
+		len--;
+	if (len <= i - 1)
+		return (0);
+	res = malloc(sizeof(char) * len - i + 2);
 	if (res == 0)
-		return (NULL);
-	while (i++ < word_counter(s, c))
-	{
-		j = 0;
-		while (s[a] == c && *s)
-			b++;
-
-	}
-
-
+		return (0);
+	while (i <= len)
+		res[j++] = s1[i++];
+	res[j] = 0;
+	return (res);
 }
 
 
+static char	*word_maker(int a, char const *s, int len)
+{
+	int		i;
+	char	*word;
 
+	i = 0;
+	if (!(word = (char *)malloc(sizeof(char) * len + 1)))
+		return (0);
+	while(i < len)
+	{
+		word[i++] = s[a++];
+	}
+	i++;
+	word[i] = 0;
+	return (word);
+}
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, const char c)
 {
 	char	**res;
 	int		i;
@@ -90,14 +109,16 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 
-int main(int argc, char const *argv[])
-{
-	char *s = "je mange du pain";
-	char c = ' ';
-	char **str = ft_split(s,c);
-
-	for (int i = 0; i <= word_counter(s, c); i++)
-		printf("%s\n", str[i]);
-
-	return 0;
-}
+// int main()
+// {
+// 	char *str = "    ";
+// 	char c = ' ';
+// 	size_t i = 0;
+// 	char **s = ft_split(str, c);
+// 	while (str[i])
+// 	{
+// 		printf("%s\n", ft_split(str, c)[i]);
+// 		i++;
+// 	}
+// 	return(0);
+// }
