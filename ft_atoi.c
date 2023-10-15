@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:18:59 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/12 11:40:44 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/14 11:53:45 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static int	ft_isspace(const char c)
 {
 	if (c == ' ' || c == '\n' || c == '\b' || c == '\t'
-	|| c == '\v' || c == '\r' || c == '\f')
-		return 1;
+		|| c == '\v' || c == '\r' || c == '\f')
+		return (1);
 	return (0);
 }
 
@@ -51,4 +51,3 @@ int	ft_atoi(const char *nptr)
 
 // 	return 0;
 // }
-
