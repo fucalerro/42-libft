@@ -6,7 +6,7 @@
 #    By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 10:59:43 by lferro            #+#    #+#              #
-#    Updated: 2023/10/12 08:47:36 by lferro           ###   ########.fr        #
+#    Updated: 2023/10/14 11:47:18 by lferro           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ ft_lstadd_front.c\
 ft_lstsize.c\
 ft_lstlast.c\
 ft_lstiter.c\
-ft_lstmap.c
+# ft_lstmap.c
 
 BONUS_OBJS = $(BONUS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:54:48 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/09 18:08:54 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/14 14:29:56 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
+	if (lst == NULL)
+		return (NULL);
 	while (lst->next != NULL)
 		lst = lst->next;
 	return (lst);

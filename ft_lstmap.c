@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 11:40:19 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/12 19:14:23 by lferro           ###   ########.fr       */
+/*   Created: 2023/10/14 12:10:39 by lferro            #+#    #+#             */
+/*   Updated: 2023/10/14 14:17:29 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nelem, size_t elsize)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	void	*res;
+	t_list	*new_lst;
+	t_list	*current;
+	void	*new_content;
 
-	if (nelem == 0 || elsize == 0)
-		return (NULL);
-	res = malloc(elsize * nelem);
-	if (res == NULL)
-		return (NULL);
-	ft_memset(res, 0, elsize * nelem);
-	return (res);
+`	new_lst = 0;
+	current = lst;
+	while (current)
+	{
+		new_content = f(lst->content);
+		current = ft_lstnew(new_content);
+		ft_lstadd_back(current, new_lst);
+		current->next = lst->next;
+	}
 }
