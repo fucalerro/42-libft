@@ -6,12 +6,11 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:56:35 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/12 11:00:05 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/15 09:51:32 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <bsd/string.h>
 
 // unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
 // {

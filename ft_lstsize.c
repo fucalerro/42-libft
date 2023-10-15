@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 19:58:51 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/09 18:10:53 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/15 10:02:16 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	ft_lstsize(t_list *lst)
 		i++;
 	}
 	return (i);
-	// printf("%d\n", i);
 }
 
 // int main(void)

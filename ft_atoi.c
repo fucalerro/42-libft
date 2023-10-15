@@ -14,9 +14,9 @@
 
 static int	ft_isspace(const char c)
 {
-	if (c == ' ' || c == '\n' || c == '\b' || c == '\t'
-	|| c == '\v' || c == '\r' || c == '\f')
-		return 1;
+	if (c == ' ' || c == '\n' || c == '\b' || c == '\t' || c == '\v'
+		|| c == '\r' || c == '\f')
+		return (1);
 	return (0);
 }
 
@@ -49,6 +49,5 @@ int	ft_atoi(const char *nptr)
 
 // 	printf("%d", ft_atoi(s));
 
-// 	return 0;
+// 	return (0);
 // }
-

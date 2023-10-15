@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 09:51:59 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/12 12:45:03 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/15 10:09:34 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,23 @@ static size_t	word_counter(char const *s, char c)
 	return (word_len);
 }
 
-char	**ft_split(char const *s, char c)
-{
-	char	**res;
-	int		i;
-	int		j;
+// char	**ft_split(char const *s, char c)
+// {
+// 	char	**res;
+// 	int		i;
+// 	int		j;
 
-	i = 0;
-	res = malloc((word_counter(s, c) + 1) * sizeof(char *));
-	if (res == 0)
-		return (NULL);
-	while (i++ < word_counter(s, c))
-	{
-		j = 0;
-		while (s[a] == c && *s)
-			b++;
-
-	}
-
-
-}
-
-
-
+// 	i = 0;
+// 	res = malloc((word_counter(s, c) + 1) * sizeof(char *));
+// 	if (res == 0)
+// 		return (NULL);
+// 	while (i++ < word_counter(s, c))
+// 	{
+// 		j = 0;
+// 		while (s[a] == c && *s)
+// 			b++;
+// 	}
+// }
 
 char	**ft_split(char const *s, char c)
 {
@@ -81,14 +75,16 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 
-int main(int argc, char const *argv[])
-{
-	char *s = "je mange du pain";
-	char c = ' ';
-	char **str = ft_split(s,c);
+// int	main(int argc, char const *argv[])
+// {
+// 	char	*s;
+// 	char	c;
+// 	char	**str;
 
-	for (int i = 0; i <= word_counter(s, c); i++)
-		printf("%s\n", str[i]);
-
-	return 0;
-}
+// 	s = "je mange du pain";
+// 	c = ' ';
+// 	str = ft_split(s, c);
+// 	for (int i = 0; i <= word_counter(s, c); i++)
+// 		printf("%s\n", str[i]);
+// 	return (0);
+// }
