@@ -6,13 +6,13 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:18:47 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/17 11:22:46 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/17 13:40:17 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	wordcounter(char const *s, char c)
+static size_t	wordcounter(char const *s, char c)
 {
 	int	i;
 	int	index;
@@ -35,7 +35,7 @@ size_t	wordcounter(char const *s, char c)
 	return (count);
 }
 
-char	*wordmaker(char const *s, int start, int end)
+static char	*wordmaker(char const *s, int start, int end)
 {
 	char	*word;
 	size_t	i;

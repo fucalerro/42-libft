@@ -3,7 +3,6 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_isalpha.c\
-ft_strcpy.c\
 ft_isdigit.c\
 ft_isalnum.c\
 ft_isascii.c\
@@ -36,7 +35,6 @@ ft_striteri.c\
 ft_putchar_fd.c\
 ft_putstr_fd.c\
 ft_putendl_fd.c\
-ft_strncat.c\
 ft_putnbr_fd.c
 
 OBJS = $(SRCS:.c=.o)

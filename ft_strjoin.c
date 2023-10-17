@@ -6,13 +6,12 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 19:14:17 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/12 12:30:31 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/17 13:20:12 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// i[0] = i, i[1] = total length
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;

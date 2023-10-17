@@ -6,34 +6,32 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:56:35 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/17 11:57:46 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/17 13:25:07 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
-// {
-// 	unsigned int	s_len;
-// 	unsigned int	d_len;
-// 	unsigned int	tot_len;
+static char	*ft_strncat(char *dest, const char *src, size_t n)
+{
+	size_t	dest_len;
+	size_t	i;
 
-// 	s_len = ft_strlen(src);
-// 	d_len = ft_strlen(dst);
-// 	tot_len = s_len + d_len;
-// 	if (tot_len + 1 < size)
-// 	{
-// 		ft_strncat(dst, src, tot_len + 1);
-// 		dst[tot_len] = 0;
-// 		return (tot_len + 1);
-// 	}
-// 	else if (size != 0)
-// 	{
-// 		ft_strncat(dst, src, size - 1);
-// 		dst[size - 1] = 0;
-// 	}
-// 	return (size - 1);
-// }
+	dest_len = ft_strlen(dest);
+	i = 0;
+	while (i < n && src[i])
+	{
+		if (dest_len + i < n - 1)
+		{
+			dest[dest_len + i] = src[i];
+			i++;
+		}
+		else
+			break ;
+	}
+	dest[dest_len + i] = '\0';
+	return (dest);
+}
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
