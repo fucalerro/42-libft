@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:40:19 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/12 19:14:23 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/17 12:15:47 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ void	*ft_calloc(size_t nelem, size_t elsize)
 	void	*res;
 
 	if (nelem == 0 || elsize == 0)
-		return (NULL);
+	{
+		res = malloc(0);
+		if (res == 0)
+			return (0);
+		return (res);
+	}
 	res = malloc(elsize * nelem);
 	if (res == NULL)
 		return (NULL);

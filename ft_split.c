@@ -5,120 +5,93 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/28 09:51:59 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/15 10:17:42 by lferro           ###   ########.fr       */
+/*   Created: 2023/10/17 11:18:47 by lferro            #+#    #+#             */
+/*   Updated: 2023/10/17 11:22:46 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	word_counter(const char *s, const char c)
+size_t	wordcounter(char const *s, char c)
 {
 	int	i;
-	int	j;
 	int	index;
+	int	count;
 
 	i = 0;
-	j = 0;
 	index = 0;
+	count = 0;
 	while (s[i])
 	{
 		if (s[i] != c && index == 0)
 		{
+			count++;
 			index = 1;
-			j++;
 		}
-		else if (s[i] == c)
+		else if (s[i] == c && index == 1)
 			index = 0;
 		i++;
 	}
-	return (j);
+	return (count);
 }
 
-char	*custom_strtrim(char const *s1, char c)
+char	*wordmaker(char const *s, int start, int end)
 {
-	char	*res;
-	int		i;
-	int		j;
-	int		len;
-
-	i = 0;
-	j = 0;
-	len = strlen(s1) - 1;
-	while (s1[i] == c && s1[i])
-		i++;
-	while (s1[len] == c && len >= 0)
-		len--;
-	if (len <= i - 1)
-		return (0);
-	res = malloc(sizeof(char) * len - i + 2);
-	if (res == 0)
-		return (0);
-	while (i <= len)
-		res[j++] = s1[i++];
-	res[j] = 0;
-	return (res);
-}
-
-
-static char	*word_maker(int a, char const *s, int len)
-{
-	int		i;
 	char	*word;
+	size_t	i;
 
 	i = 0;
-	if (!(word = (char *)malloc(sizeof(char) * len + 1)))
+	word = malloc((end - start + 1) * sizeof(char));
+	if (word == 0)
 		return (0);
-	while(i < len)
-	{
-		word[i++] = s[a++];
-	}
-	i++;
+	while (start < end)
+		word[i++] = s[start++];
 	word[i] = 0;
 	return (word);
 }
 
-char	**ft_split(const char *s, const char c)
+char	**ft_split(char const *s, char c)
 {
+	size_t	i;
+	size_t	j;
+	int		index;
 	char	**res;
-	int		i;
-	int		word_len;
-	int		j;
 
 	i = 0;
 	j = 0;
-	s = custom_strtrim(s, c);
-	if (!s || !(res = malloc((word_counter(s, c) + 1) * sizeof(char *))))
+	index = -1;
+	res = malloc((wordcounter(s, c) + 1) * sizeof(char *));
+	if (res == 0)
 		return (0);
-	while (s[i])
+	while (i <= ft_strlen(s))
 	{
-		while (s[i] == c)
-			i++;
-		word_len = 0;
-		while (s[word_len + i] != c && s[word_len + i])
-			word_len++;
-		res[j] = word_maker(i, s, word_len);
-		if (res[j] == 0)
-			free(res);
-		if (res[j] == 0)
-			return (0);
-		j++;
-		i += word_len;
+		if (s[i] != c && index < 0)
+			index = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		{
+			res[j++] = wordmaker(s, index, i);
+			index = -1;
+		}
+		i++;
 	}
 	res[j] = 0;
 	return (res);
 }
 
-// int main()
-// {
-// 	char *str = "    ";
-// 	char c = ' ';
-// 	size_t i = 0;
-// 	char **s = ft_split(str, c);
-// 	while (str[i])
-// 	{
-// 		printf("%s\n", ft_split(str, c)[i]);
-// 		i++;
-// 	}
-// 	return(0);
+// int main(void)
+// {              //  01233456789
+// 	char	*s  = "  abc  def  abc";
+// 	char	c = ' ';
+// 	// int		start = 0;
+// 	// int		end = 4;
+
+// 	printf("word count: %zu\n", wordcounter(s, c));
+
+// 	char **split = ft_split(s, c);
+// 	// printf("%s\n", wordmaker(s, start, end));
+
+// 	for (size_t i = 0; i < wordcounter(s, c); i++)
+// 		printf("%s\n", split[i]);
+
+// 	return (0);
 // }

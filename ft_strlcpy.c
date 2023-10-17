@@ -6,15 +6,15 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:44:56 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/15 09:51:36 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/17 11:57:32 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int	len_src;
+	size_t	len_src;
 
 	len_src = ft_strlen(src);
 	if (len_src + 1 < size)

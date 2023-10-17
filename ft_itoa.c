@@ -6,11 +6,29 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 18:09:35 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/15 20:31:21 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/16 15:54:44 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	count_digit(int n)
+{
+	int	count;
+
+	count = 2;
+	if (n < 0)
+	{
+		count++;
+		n = -n;
+	}
+	while (n > 9)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
+}
 
 static char	*max_int_or_zero_mngmt(int n)
 {
@@ -25,38 +43,18 @@ static char	*max_int_or_zero_mngmt(int n)
 		str[1] = 0;
 	}
 	else
-	{
-		str = malloc(sizeof(char) * 12);
-		if (!str)
-			return (0);
-		return (ft_strdup("-2147483648"));
-	}
+		str = ft_strdup("-2147483648");
 	return (str);
 }
 
-static char	*mallocator(int n, int count)
+static char	*mallocator(int count)
 {
 	char	*anbr;
 
-	if (n < 0)
-		count++;
 	anbr = malloc(sizeof(char) * count);
+	if (anbr == 0)
+		return (0);
 	return (anbr);
-}
-
-static int	count_digit(int n)
-{
-	int	count;
-
-	count = 3;
-	if (n > 0)
-		count--;
-	while ((n > 9 || n < -9))
-	{
-		n /= 10;
-		count++;
-	}
-	return (count);
 }
 
 char	*ft_itoa(int n)
@@ -71,7 +69,7 @@ char	*ft_itoa(int n)
 		return (anbr);
 	}
 	i[0] = count_digit(n);
-	anbr = mallocator(n, i[0]);
+	anbr = mallocator(i[0]);
 	if (anbr == 0)
 		return (0);
 	if (n < 0)
@@ -89,7 +87,11 @@ char	*ft_itoa(int n)
 
 // int main(void)
 // {
-// 	int n = -2147483648LL;
-// 	printf("%s\n", ft_itoa(n));
+// 	int n = -2147483648;
+
+// 	char *res = ft_itoa(n);
+// 	printf("%d\n", count_digit(n));
+
+// 	printf("%s\n", res);
 // 	return (0);
 // }

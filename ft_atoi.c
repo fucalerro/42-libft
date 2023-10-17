@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 10:18:59 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/15 17:50:40 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/16 15:55:08 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	ft_isspace(const char c)
 {
-	if (c == ' ' || c == '\n' || c == '\b' || c == '\t' || c == '\v'
-		|| c == '\r' || c == '\f')
+	if (c == ' ' || c == '\n' || c == '\t' || c == '\v' || c == '\r'
+		|| c == '\f')
 		return (1);
 	return (0);
 }
@@ -45,11 +45,11 @@ int	ft_atoi(const char *nptr)
 	return (k * i);
 }
 
-// int main(int argc, char const *argv[])
+// int main(void)
 // {
-// 	char *s = "-+54";
-// 	printf("%d", ft_atoi(s));
-// 	printf("\n%d", atoi(s));
+// 	char *s = "\010 7";
+// 	printf("ft: %d", ft_atoi(s));
+// 	printf("\nlb: %d", atoi(s));
 
 // 	return (0);
 // }

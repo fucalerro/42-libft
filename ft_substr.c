@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:14:58 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/15 18:12:26 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/17 12:17:03 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	start = (size_t)start;
 	i = 0;
 	j = 0;
-	if (len + (size_t)start > ft_strlen(s))
+	if (start > ft_strlen(s))
 		return (ft_strdup(""));
+	if (len > ft_strlen(s))
+		len = ft_strlen(s) - start;
 	res = malloc(sizeof(char) * (len + 1));
 	if (res == 0)
 		return (0);
@@ -36,11 +38,12 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 
 // int main(int argc, char const *argv[])
 // {
-// 	char s1[] = "lorem ipsum dolor sit amet";
-// 	int start = 400;
-// 	int len = 20;
 
-// 	printf("%s", ft_substr(s1, start, len));
+// 	// char s1[] = "lorem ipsum dolor sit amet";
+// 	// int start = 400;
+// 	// int len = 20;
+
+// 	printf("ft: %s\n", ft_substr("tripouille", 0, 42000));
 
 // 	return (0);
 // }

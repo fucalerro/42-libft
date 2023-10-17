@@ -1,17 +1,5 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/10 10:59:43 by lferro            #+#    #+#              #
-#    Updated: 2023/10/15 18:37:34 by lferro           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libft.a
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_isalpha.c\
@@ -55,9 +43,12 @@ OBJS = $(SRCS:.c=.o)
 
 BONUS = ft_lstnew.c\
 ft_lstadd_front.c\
+ft_lstadd_back.c\
+ft_lstdelone.c\
 ft_lstsize.c\
 ft_lstlast.c\
 ft_lstiter.c\
+ft_lstclear.c\
 ft_lstmap.c
 
 BONUS_OBJS = $(BONUS:.c=.o)
@@ -80,8 +71,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
-
 norme:
 	c_formatter_42 $(SRCS)
 
@@ -89,3 +78,5 @@ normi:
 	norminette $(SRCS)
 
 renorm: norme normi
+
+.PHONY: all clean fclean re

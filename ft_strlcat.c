@@ -6,7 +6,7 @@
 /*   By: lferro <lferro@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:56:35 by lferro            #+#    #+#             */
-/*   Updated: 2023/10/15 09:51:32 by lferro           ###   ########.fr       */
+/*   Updated: 2023/10/17 11:57:46 by lferro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 // 	return (size - 1);
 // }
 
-unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	d_len;
 	size_t	s_len;
@@ -64,5 +64,5 @@ unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
 // 	printf("ft len:	%zu\n", r2);
 //     printf("ft str:	%s\n", d2);
 
-//     return 0;
+//     return (0);
 // }
